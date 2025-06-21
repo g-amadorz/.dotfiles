@@ -1,0 +1,53 @@
+general.import = ["~/.config/alacritty/rose-pine.toml"]
+
+[window]
+
+title = "Dungeon"
+
+startup_mode = "SimpleFullscreen"
+
+dynamic_title = true
+
+opacity = 0.92
+
+padding.x = 10
+padding.y = 5
+
+option_as_alt = "Both" 
+
+blur = true
+
+decorations = "Buttonless"
+decorations_theme_variant = "Dark" # "Dark"
+
+[font]
+
+normal.family = "JetBrainsMono Nerd Font"
+
+size = 20.0
+
+[cursor]
+
+
+style = {blinking = "Always"}
+
+vi_mode_style = {blinking = "Always"}
+
+
+[keyboard]
+bindings = [
+  { key = "V", mods = "Control", action = "ToggleViMode" },
+  { key = "Up", mode = "Vi", action = "ScrollLineUp" },
+  { key = "Down", mode = "Vi", action = "ScrollLineDown" },
+  { key = "PageUp", mode = "Vi", action = "ScrollPageUp" },
+  { key = "PageDown", mode = "Vi", action = "ScrollPageDown" },
+  { key = "Escape", mode = "Vi", action = "ClearSelection" },
+  { key = "K", mods = "Control", action = "ToggleFullScreen" }
+]
+
+
+
+ # [mouse]
+ # # Enables normal mouse scrolling
+ # enabled = true
+
