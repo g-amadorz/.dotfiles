@@ -1,4 +1,3 @@
-
 -- My Grails
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -18,7 +17,6 @@ vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 -- Navigation
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
 
 -- Zen Mode
 vim.keymap.set("n", "<leader>dz", ":ZenMode <CR>", { silent = true })

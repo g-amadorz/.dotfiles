@@ -8,7 +8,6 @@ local root_files = {
 	"selene.yml",
 	".git",
 }
-
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -20,7 +19,6 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
-		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
 	},
@@ -38,7 +36,7 @@ return {
 				rust = { "rustfmt" },
 			},
 		})
-		-- Format on Save
+		-- format on save
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = "*",
 			callback = function(args)
@@ -53,6 +51,8 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities()
 		)
+
+		capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 		require("fidget").setup({})
 		require("mason").setup()
@@ -92,9 +92,9 @@ return {
 							Lua = {
 								format = {
 									enable = true,
-									-- Put format options here
-									-- NOTE: the value should be STRING!!
-									defaultConfig = {
+									-- put format options here
+									-- note: the value should be string!!
+									defaultconfig = {
 										indent_style = "space",
 										indent_size = "2",
 									},
@@ -111,26 +111,28 @@ return {
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+					require("luasnip").lsp_expand(args.body) -- for `luasnip` users.
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-Space>"] = cmp.mapping.complete(),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<c-p>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<c-n>"] = cmp.mapping.select_next_item(cmp_select),
+				["<c-space>"] = cmp.mapping.complete(),
+				["<cr>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 },
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "luasnip" }, -- for luasnip users.
 			}, {
 				{ name = "buffer" },
 			}),
 		})
 
 		vim.diagnostic.config({
-			-- update_in_insert = true,
+			signs = true,
+			underline = true,
+			update_in_insert = true,
 			float = {
 				focusable = false,
 				style = "minimal",
@@ -140,5 +142,12 @@ return {
 				prefix = "",
 			},
 		})
+
+		vim.cmd([[
+    highlight DiagnosticUnderlineError gui=undercurl guisp=Red
+    highlight DiagnosticUnderlineWarn  gui=undercurl guisp=Yellow
+    highlight DiagnosticUnderlineInfo  gui=undercurl guisp=Blue
+    highlight DiagnosticUnderlineHint  gui=undercurl guisp=Green
+    ]])
 	end,
 }
