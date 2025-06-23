@@ -20,3 +20,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Zen Mode
 vim.keymap.set("n", "<leader>dz", ":ZenMode <CR>", { silent = true })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+
