@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"nvim-telescope/telescope-ui-select.nvim",
 		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	config = function()
@@ -23,7 +24,8 @@ return {
 		vim.keymap.set("n", "<leader>g", builtin.live_grep, { silent = true })
 		vim.keymap.set("n", "<leader>r", ":Telescope oldfiles<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Telescope help tags" })
-		-- vim.keymap.set('n', '<leader>c', builtin.commands, { desc = 'Telescope help tags' })
+		vim.keymap.set("n", "<leader>gd", builtin.lsp_implementations, { desc = "Telescope go to do definition" })
+		vim.keymap.set("n", "<leader>c", builtin.commands, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>lt", builtin.treesitter, { desc = "List functions" })
 		vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "List functions" })
 		vim.keymap.set("n", "<leader>lq", "<cmd>Telescope diagnostics<CR>", { desc = "List functions" })

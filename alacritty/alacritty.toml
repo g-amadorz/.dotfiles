@@ -1,17 +1,25 @@
+
+
 general.import = ["~/.config/alacritty/rose-pine.toml"]
 
 [window]
 
 title = "Dungeon"
 
-startup_mode = "SimpleFullscreen"
+startup_mode = "Windowed"
+
+dynamic_padding = true
+
+dimensions = {columns = 100, lines = 30}
 
 dynamic_title = true
 
-opacity = 0.92
+opacity = 0.82
 
-padding.x = 10
-padding.y = 5
+position = {x = 400, y = 100}
+
+padding.x = 2
+padding.y = 0
 
 option_as_alt = "Both" 
 
@@ -20,11 +28,14 @@ blur = true
 decorations = "Buttonless"
 decorations_theme_variant = "Dark" # "Dark"
 
+[env]
+TERM = "xterm-256color"
+
 [font]
 
 normal.family = "JetBrainsMono Nerd Font"
 
-size = 20.0
+size = 22.0
 
 [cursor]
 

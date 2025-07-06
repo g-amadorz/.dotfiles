@@ -5,7 +5,7 @@ vim.opt.cursorcolumn = false
 vim.opt.cursorline = false
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.smartindent = false
+vim.opt.smartindent = true
 vim.opt.expandtab = true
 vim.opt.wrap = false
 vim.opt.number = true
@@ -21,3 +21,4 @@ vim.opt.hlsearch = false
 vim.opt.scrolloff = 4
 vim.opt.signcolumn = "yes"
 vim.opt.foldopen = "mark,percent,quickfix,search,tag,undo"
+vim.api.nvim_set_option("clipboard", "unnamed")

@@ -9,6 +9,7 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save file" })
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>a", { desc = "Save file" })
 vim.keymap.set("n", "a", "i")
 vim.keymap.set("n", "i", "a")
+vim.keymap.set("n", "cc", "*yy")
 
 -- Move Lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -22,11 +23,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<leader>dz", ":ZenMode <CR>", { silent = true })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
-
-
