@@ -27,7 +27,7 @@ return {
 
 		completion = {
 			documentation = { auto_show = true },
-			list = { selection = { preselect = false, auto_insert = false } },
+			list = { selection = { preselect = true, auto_insert = false } },
 			ghost_text = { enabled = true },
 		},
 
@@ -39,27 +39,4 @@ return {
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
 	opts_extend = { "sources.default" },
-	config = function()
-		require("blink.cmp").setup({
-			completion = {
-				menu = {
-					draw = {
-						-- We don't need label_description now because label and label_description are already
-						-- combined together in label by colorful-menu.nvim.
-						columns = { { "kind_icon" }, { "label", gap = 1 } },
-						components = {
-							label = {
-								text = function(ctx)
-									return require("colorful-menu").blink_components_text(ctx)
-								end,
-								highlight = function(ctx)
-									return require("colorful-menu").blink_components_highlight(ctx)
-								end,
-							},
-						},
-					},
-				},
-			},
-		})
-	end,
 }
