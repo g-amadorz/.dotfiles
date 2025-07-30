@@ -1,5 +1,3 @@
-
-
 general.import = ["~/.config/alacritty/rose-pine.toml"]
 
 [window]
@@ -14,7 +12,7 @@ dimensions = {columns = 100, lines = 30}
 
 dynamic_title = true
 
-opacity = 0.90
+opacity = 0.9
 
 position = {x = 400, y = 100}
 
@@ -26,16 +24,15 @@ option_as_alt = "Both"
 blur = true
 
 decorations = "Buttonless"
-decorations_theme_variant = "Dark" # "Dark"
 
 [env]
 TERM = "xterm-256color"
 
 [font]
 
-normal.family = "JetBrainsMono Nerd Font"
+normal.family = "JetBrainsMonoNL Nerd Font"
 
-size = 22.0
+size = 23.0
 
 [cursor]
 
